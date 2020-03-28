@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="theme-color" content="#000000"/>
+<meta charset="utf-8"/>
+<link rel="icon" href="images/the_pyramid_game_arrow_small.png"/>
+<link rel="stylesheet" type="text/css" href="css/pyramid_game.css"/>
+<link rel="stylesheet" type="text/css" href="css/pyramid_game_account_bar.css"/>
+<link rel="stylesheet" type="text/css" href="css/pyramid_game_chat.css"/>
+<link rel="stylesheet" type="text/css" href="css/pyramid_game_grid.css"/>
+<link rel="stylesheet" type="text/css" href="css/pyramid_game_leaderboard.css"/>
+<link rel="stylesheet" type="text/css" href="css/pyramid_game_title.css"/>
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/nkbihfbeogaeaoehlefnkodbefgpgknn"/>
+<title>The Pyramid Game</title>
+<meta name="description" content="The Ethereum building game: Profit when people place blocks on top of yours!"/>
+</head>
+<body>
+
+<!-- Force this image to load before onload is called -->
+<img src="images/stien_twa_lyts.png" style="position: fixed; left: -10000px; top: 0px;" alt="Ignore this, blind person"/>
+
+<!-- Top bar -->
+<div id="titleBar">
+	<h1 id="title">The Pyramid Game</h1>
+	<h2 id="subtitle">The Ethereum building game: Profit when people place blocks on top of yours!</h2>
+</div>
+<div id="statusBox" class="statusBoxMiddleOfScreen">
+	<div id="statusBoxStatus">Loading page...</div>
+	<br/>
+	<div id="statusBoxLoadingBar"></div>
+</div>
+<div id="errorAnnouncementBox">
+	Due to a recent malfunction within Metamask's communication system, the Pyramid Game has not been able to load properly for some users.<br/><br/>
+	One possible workaround is to switch to a Custom RPC node by following these steps:
+	<ol>
+		<li>Copy this URL: <div style="display:inline-block;">https://mainnet.infura.io/</div></li>
+		<li>Click the Metamask icon in your browser</li>
+		<li>Click where it says 'Main Ethereum Network' at the top-left of Metamask</li>
+		<li>Click 'Custom RPC'</li>
+		<li>Paste the URL into the 'New RPC URL' field</li>
+		<li>Click Save</li>
+	</ol>
+</div>
+<div id="aboutBox">
+	<div>Total blocks: <span id="totalBlocks"></span></div>
+	<!--<a href="#" onclick="">Statistics</a>-->
+	<a href="about.html" target="_blank">About</a>
+	<div></div>
+</div>
+<div id="settingsBox">
+	Performance options:<br/>
+	<input type="checkbox" id="cbHideNumbersOnBlocks" name="cbHideNumbersOnBlocks"/>
+	<label for="cbHideNumbersOnBlocks">Hide numbers on blocks</label><br/>
+	<input type="checkbox" id="cbHideBlocksOutsideScreen" name="cbHideBlocksOutsideScreen"/>
+	<label for="cbHideBlocksOutsideScreen">Hide blocks outside screen</label><br/>
+</div>
+<!--
+<div id="statisticsBox">
+	Total blocks: <span id="totalBlocks">?</span>
+</div>
+-->
+
+<!-- Account selector & Withdrawable balance -->
+<div id="accountBarArrow"></div>
+<div id="accountBar">
+	<div id="divAccountSelectorContainer">
+		<div>Your Account:</div>
+		<div id="divAccountSelector"></div>
+	</div>
+	<br/>
+	<div id="divWithdrawableBalanceContainer">
+		<div>Withdrawable balance:</div>
+		<div id="divWithdrawableBalanceAndButton">
+			<div id="divWithdrawableBalance" class="ethAmount"></div>
+			<input type="button" id="btnWithdraw" value="Withdraw all"/>
+			<input type="button" id="btnWithdrawPart" value="Withdraw part"/>
+		</div>
+	</div>
+</div>
+
+<!-- Leaderboard -->
+<div id="leaderboardArrow"></div>
+<div id="leaderboardContainer">
+	<div id="leaderboard"></div>
+</div>
+
+<!-- Chatbox -->
+<div id="chatboxArrow"></div>
+<div id="chatbox">
+	<div id="chatboxTitle">Chatbox</div>
+	<div id="chatboxUsername"></div>
+	<div id="chatMessagesDiv"></div>
+	<input type="text" id="chatMessageBox"/>
+</div>
+
+<!-- Game -->
+<div id="pyramidFieldContainer">
+	<div id="pyramidField"></div>
+</div>
+
+<!-- Import the web3.js library to be able to interact with a local ethereum node -->
+<script src="js/web3.js"></script>
+
+<!-- Import the BigNumber library to be able to deal with the 256-bit integers that Ethereum uses -->
+<script src="js/bignumber.js"></script>
+
+<!-- Import the blockies library to draw the familiar images associated with Ethereum accounts -->
+<script src="js/blockies.js"></script>
+
+<!-- Import some miscellaneous utility functions -->
+<script src="js/ethereum_util.js"></script>
+
+<!-- Import JQuery -->
+<script>function $(el){return document.getElementById(el);}</script>
+
+<!-- Import all the game state variables -->
+<script src="js/pyramid_game_globals.js"></script>
+
+<!-- Import some miscellaneous functions -->
+<script src="js/pyramid_game_util.js"></script>
+
+<!-- Load the cached pyramid data -->
+<script src="js/cache.js"></script>
+
+<!-- Import all the game functionality -->
+<script src="js/pyramid_game_account_bar.js"></script>
+<script src="js/pyramid_game_async.js"></script>
+<script src="js/pyramid_game_chat.js"></script>
+<script src="js/pyramid_game_grid.js"></script>
+<script src="js/pyramid_game_leaderboard.js"></script>
+<script src="js/pyramid_game_update.js"></script>
+
+<!-- Detect support for the JavaScript async and await keywords -->
+<script src="js/pyramid_game_detect_async_support.js"></script>
+
+<!-- Start the game -->
+<script src="js/pyramid_game_init.js"></script>
+
+</body>
+</html>
