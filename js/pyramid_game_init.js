@@ -453,7 +453,7 @@ async function init()
 		
 		if (currentNetworkId != REQUIRED_NETWORK_ID)
 		{
-			initializingFailedBecauseWrongNetwork = true;
+			initializingFailedBecauseWrongNetwork = false;
 			throw "Incorrect network!";
 		}
 		
